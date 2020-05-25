@@ -1,32 +1,34 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <nav>
+      <div class="nav-wrapper gradient-45deg-purple-deep-purple">
+        <a href="#" class="brand-logo right">Logo</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><router-link to="/">Accueil</router-link></li>
+        </ul>
+      </div>
+    </nav>
     <router-view/>
   </div>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.gradient-45deg-purple-light-blue{
+  background: linear-gradient(45deg,#e040fb,#4fc3f7) !important;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.gradient-45deg-light-blue-purple{
+  background: linear-gradient(45deg,#4fc3f7,#e040fb) !important;
+}
+.gradient-45deg-purple-deep-purple{
+  background: linear-gradient(45deg,#7b1fa2,#7c4dff) !important;
+}
+.gradient-45deg-deep-purple-purple{
+  background: linear-gradient(45deg,#7c4dff,#7b1fa2) !important;
+}
+.gradient-45deg-purple-indigo{
+  background: linear-gradient(45deg,#7b1fa2,#303f9f) !important;
+}
+.gradient-45deg-indigo-purple{
+  background: linear-gradient(45deg,#303f9f,#7b1fa2) !important;
 }
 </style>
