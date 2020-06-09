@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Game from '../views/Game'
+import GameList from '../components/GameList'
 
 Vue.use(VueRouter)
 
@@ -12,10 +13,14 @@ const routes = [
     component: Home,
     children: [
       {
+        name: 'GameList',
+        path: '/',
+        component: GameList
+      },
+      {
         name: 'Game',
         path: 'game/:id',
-        component: Game,
-        props: { game: game }
+        component: Game
       }
     ]
   },

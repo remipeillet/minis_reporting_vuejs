@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <GameMenu/>
-    <router-view></router-view>
+    <div class="main">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 

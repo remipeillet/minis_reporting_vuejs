@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col s12">
         <ul class="tabs">
-          <li class="tab col s3" v-for="game in games_list" :key="game.id"><router-link :to="{ name:'Game', params: { id: game.id}}">{{game.name}}</router-link></li>
+          <li class="tab col s3" v-for="game in games_list" :key="game.id"><router-link :to="{ name:'Game', params: { id: game.id, game: game} }">{{game.name}}</router-link></li>
         </ul>
       </div>
     </div>
@@ -22,7 +22,7 @@ export default {
   },
   mounted () {
     axios
-      .get('http://127.0.0.1:8000/restapi/minis/game/')
+      .get('http://127.0.0.1:8001/restapi/minis/game/')
       .then(response => (this.games_list = response.data))
       .catch(error => (console.log(error)))
   }
