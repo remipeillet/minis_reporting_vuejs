@@ -1,17 +1,18 @@
 <template>
-  <div>
-    <div class="row">
-      <div class="col s12">
-        <ul class="tabs">
-          <li class="tab col s3" v-for="game in games_list" :key="game.id"><router-link :to="{ name:'Game', params: { id: game.id, game: game} }">{{game.name}}</router-link></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <v-list dense>
+    <v-list-item :to="{name: 'Game', params: {game_id: game.id}}"  v-for="game in games_list" :key="game.id" link>
+      <v-list-item-action>
+        <v-icon>mdi-view-dashboard</v-icon>
+      </v-list-item-action>
+      <v-list-item-content>
+        <v-list-item-title>{{game.name}}</v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+  </v-list>
 </template>
 
 <script>
-import axios from 'axios'
+import http from '../http-common'
 
 export default {
   name: 'GameMenu',
@@ -21,8 +22,7 @@ export default {
     }
   },
   mounted () {
-    axios
-      .get('http://127.0.0.1:8001/restapi/minis/game/')
+    http.get('/restapi/minis/game/')
       .then(response => (this.games_list = response.data))
       .catch(error => (console.log(error)))
   }

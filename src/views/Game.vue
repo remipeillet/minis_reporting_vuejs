@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="loading" class="loading">
+    <div v-if="loading" class="loading center">
       <div class="preloader-wrapper big active">
         <div class="spinner-layer spinner-blue">
           <div class="circle-clipper left">
@@ -46,8 +46,9 @@
     <div v-if="currentGame" class="content">
       <h1>{{ currentGame.name }}</h1>
       <div class="collection">
-        <a href="#!" class="collection-item" v-for="faction in factionList" :key="faction.id">{{ faction.name }}</a>
+        <router-link class="collection-item" v-for="faction in factionList" :key="faction.id" :to="{ name:'Faction', params: { game_id: currentGame.id, faction_id: faction.id, faction: faction} }">{{ faction.name }}</router-link>
       </div>
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -66,7 +67,7 @@ export default {
   },
   computed: {
     currentGameId: function () {
-      return this.$route.params.id
+      return this.$route.params.game_id
     }
   },
   created () {

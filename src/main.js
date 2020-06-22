@@ -1,15 +1,14 @@
 import Vue from 'vue'
-import M from 'materialize-css'
-import 'materialize-css/dist/css/materialize.css'
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
-Vue.config.productionTip = false
-M.AutoInit()
+import vuetify from './plugins/vuetify'
 
 new Vue({
   router,
   store,
+  vuetify,
   render: h => h(App)
 }).$mount('#app')
